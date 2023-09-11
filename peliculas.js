@@ -137,29 +137,6 @@ const calculate = () => {
   const error404Text = document.getElementById("error404")
   const maxHoras = parseFloat(prompt("Cuántas horas vas a ver películas?")) * 60;
 
-  if(maxHoras <= 0 || maxHoras === NaN) {
-    error404Text.style.display = "block";
-
-    while(container.firstChild) {
-      container.removeChild(container.firstChild)
-    }
-
-    const container_info = document.getElementById("container_info")
-    while(container_info.firstChild) {
-      container_info.removeChild(container_info.firstChild)
-    }
-
-    const header = document.getElementById("header")
-    const containerButtons = document.getElementById("buttons")
-    const btnReload = document.createElement("button")
-    btnReload.className = "btnReload"
-    btnReload.textContent = "Regresar a Página Principal"
-    header.replaceChild(btnReload, containerButtons);
-    btnReload.addEventListener("click", reloadPage)
-
-    return error404Text;
-  }
-
   let tiempoPeliculas = 0;
   let newArrPeliculas = [];
   let i = 0;
