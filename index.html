@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles.css">
+    <title>Document</title>
+</head>
+<body>
+    <header id="header" class="header">
+        <div id="buttons" class="buttons">
+            <button id="sortMenorMayor" class="btn">Ordenar de menor a mayor</button>
+            <button id="sortMayorMenor" class="btn">Ordenar de mayor a menor</butto>
+        </div>
+        <button id="calculate" class="btn btn_cal">¿Cuántas películas podré ver?</button>
+    </header>
+
+    <span id="error404" class="error404_text">Lo siento, no sé qué quisiste decir 🤔. Inténtalo nuevamente.</span>
+
+    <div id="container_info">
+        <span id="totalHoursGiven" class="totalHoursGiven"></span>
+        <span id="totalMovies" class="totalMovies"></span>
+        <span id="totalHours" class="totalHours"></span>
+    </div>
+
+    <div id="container_movies" class="container_movies"></div>
+
+    <script src="./peliculas.js"></script>
+</body>
+</html>
