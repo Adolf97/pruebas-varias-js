@@ -134,9 +134,7 @@ buttonMore.addEventListener("click", orderByTimeMore);
 
 // Función para determinar cuántas y qué pelícuas puedo ver
 const calculate = () => {
-  const error404Text = document.getElementById("error404")
   const maxHoras = parseFloat(prompt("Cuántas horas vas a ver películas?")) * 60;
-
   let tiempoPeliculas = 0;
   let newArrPeliculas = [];
   let i = 0;
@@ -146,27 +144,12 @@ const calculate = () => {
   })
   
   while(maxHoras - tiempoPeliculas > 0 && arrPeliculas[i].duration < maxHoras - tiempoPeliculas) {
-    error404Text.style.display = "none";
-
     const time = arrPeliculas[i].duration;
     tiempoPeliculas += time;
 
     const newMovie = arrPeliculas[i]
     newArrPeliculas.push(newMovie)
     i++;
-
-    const totalHoursGiven = document.getElementById("totalHoursGiven")
-    totalHoursGiven.textContent = "Horas que tienes: " + maxHoras/60;
-
-    const totalMovies = document.getElementById("totalMovies")
-    if(newArrPeliculas.length === arrPeliculas.length) {
-      totalMovies.textContent = "Total de películas: ¡¡Puedes ver todas!!" 
-    } else {
-      totalMovies.textContent = "Total de películas: " + newArrPeliculas.length
-    }
-
-    const totalHours = document.getElementById("totalHours")
-    totalHours.textContent = "Total de tiempo: " + Math.floor(tiempoPeliculas/60) + " horas y " + Math.round(tiempoPeliculas%60) + " minutos"
 
     if(i === arrPeliculas.length) {
       break
@@ -177,6 +160,19 @@ const calculate = () => {
     container.removeChild(container.firstChild)
   }
   addCardMovie(newArrPeliculas)
+
+  const totalHoursGiven = document.getElementById("totalHoursGiven")
+  totalHoursGiven.textContent = "Horas que tienes: " + maxHoras/60;
+
+  const totalMovies = document.getElementById("totalMovies")
+  if(newArrPeliculas.length === arrPeliculas.length) {
+    totalMovies.textContent = "Total de películas: ¡¡Puedes ver todas!!" 
+  } else {
+    totalMovies.textContent = "Total de películas: " + newArrPeliculas.length
+  }
+
+  const totalHours = document.getElementById("totalHours")
+  totalHours.textContent = "Total de tiempo: " + Math.floor(tiempoPeliculas/60) + " horas y " + Math.round(tiempoPeliculas%60) + " minutos"
 
   // Funciones visuales en la página
   const header = document.getElementById("header")
